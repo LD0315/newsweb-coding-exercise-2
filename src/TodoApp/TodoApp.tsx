@@ -33,15 +33,19 @@ const TodoApp = () => {
     );
   };
 
+
   return (
     <div className="Todo">
       <h1>Todo</h1>
-
+      <ul>
+         Remaining:  {items.length} items
+      </ul>
       <ul>
         {items.map((item, i) => (
           <TodoItem {...item} index={i} onChange={onTodoChange} />
         ))}
       </ul>
+
 
       <div className="Todo-entry">
         <form onSubmit={onSubmit}>
