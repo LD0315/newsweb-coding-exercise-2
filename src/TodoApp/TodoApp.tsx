@@ -38,9 +38,7 @@ const TodoApp = () => {
     <div className="Todo">
       <h1>Todo</h1>
       <ul>
-         Remaining:  {items.length} items
-      </ul>
-      <ul>
+        Remaining:  {items.length} items
         {items.map((item, i) => (
           <TodoItem {...item} index={i} onChange={onTodoChange} />
         ))}
