@@ -37,14 +37,6 @@ const TodoApp = () => {
   return (
     <div className="Todo">
       <h1>Todo</h1>
-      <ul>
-        Remaining:  {items.length} items
-        {items.map((item, i) => (
-          <TodoItem {...item} index={i} onChange={onTodoChange} />
-        ))}
-      </ul>
-
-
       <div className="Todo-entry">
         <form onSubmit={onSubmit}>
           <input
@@ -56,6 +48,12 @@ const TodoApp = () => {
           <button type="submit">Add Item</button>
         </form>
       </div>
+      <ul>
+        Remaining:  {items.length} items
+        {items.map((item, i) => (
+          <TodoItem {...item} index={i} onChange={onTodoChange} />
+        ))}
+      </ul>
     </div>
   );
 };
