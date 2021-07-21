@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./TodoApp.css";
 
 import { TodoItem } from "../TodoItem/TodoItem";
-
+import TodoList from "./TodoList";
+import "./bootstrap.min.css";
 type TodoItemType = {
   todo: string;
   done: boolean;
@@ -12,8 +13,19 @@ type TodoItemType = {
 const TodoApp = () => {
   const [items, setItems] = useState<any[]>([]);
   const [entry, setEntry] = useState("");
+  const [warning, setWarning] = useState(false);
+
 
   const onSubmit = (e: any) => {
+
+      if (entry === "") {
+          setWarning(true);
+          e.preventDefault();
+          return false;
+      }
+      if (warning) {
+          setWarning(false);
+      }
     const newItem: TodoItemType = {
       todo: entry,
       done: false,
@@ -33,28 +45,75 @@ const TodoApp = () => {
     );
   };
 
+      const onEdit = (index:number, value:string) => {
+          setItems(
+            items.map((item, i) => (i === index ? { ...item, todo: value } : item))
+          );
+      };
+
+      const onTodoDelete = (index:number) => {
+          let newItems = [];
+          for (let i = 0; i < items.length; i++) {
+              if (i == index) {
+                  continue;
+              }
+              newItems.push(items[i]);
+          }
+          setItems(newItems);
+      };
+
+      const warningRender = () => {
+
+        return (
+
+            <>
+
+                <div className="alert alert-dismissible alert-light">
+                  <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="alert"
+                      onClick={() => setWarning(false)}></button>
+                  <strong>Invalid input!</strong>
+                  Can not add empty todo.
+                </div>
+
+
+            </>
+        );
+      }
 
   return (
-    <div className="Todo">
-      <h1>Todo</h1>
-      <div className="Todo-entry">
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            value={entry}
-            onChange={(e) => setEntry(e.target.value)}
-            placeholder="I need to..."
-          />
-          <button type="submit">Add Item</button>
-        </form>
-      </div>
-      <ul>
-        Remaining:  {items.length} items
-        {items.map((item, i) => (
-          <TodoItem {...item} index={i} onChange={onTodoChange} />
-        ))}
-      </ul>
+    <>
+     <div className="Todo bg-dark">
+        <h1>Todo List</h1>
+        {warning === true && warningRender()}
+        <div className="form-group row" >
+          <div className="col-lg-12">
+          <form onSubmit={onSubmit}>
+              <input
+                className="col-sm-6"
+                type="text"
+                value={entry}
+                onChange={(e) => setEntry(e.target.value)}
+                placeholder="I need to..."
+              />
+
+              <button
+                style={{margin:'1px'}}
+              type="submit" className="btn btn-primary col-sm-6">Add Item</button>
+
+            </form>
+          </div>
+        <TodoList
+            items={items}
+            onTodoChange={onTodoChange}
+            onTodoDelete={onTodoDelete}
+            onTodoEdit={onEdit}/>
+
+          </div>
     </div>
+    </>
   );
 };
 

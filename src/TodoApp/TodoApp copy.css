@@ -2,11 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-  color: whitesmoke;
-  font-family: Georgia, serif;
+
   opacity: 0.9;
 }
 
@@ -20,4 +16,8 @@ ul {
   border: none;
 }
 
-
+.Todo-entry button {
+  height: 42px;
+  border: 2px solid tomato;
+  background-color: tomato;
+}
