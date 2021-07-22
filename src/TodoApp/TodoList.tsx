@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { TodoItem } from "../TodoItem/TodoItem";
 
-
-
 import "./TodoApp.css";
 
 /**
@@ -20,8 +18,6 @@ import "./TodoApp.css";
     );
  */
 export default function TodoList(props:any) {
-
-
     const countRemaining = (items:any[]) => {
         var count = 0;
 
@@ -40,16 +36,12 @@ export default function TodoList(props:any) {
         setRemainingCount(countRemaining(props.items));
     }, [props.items]);
 
-
-
     return (
-      <>
       <div className="row">
-          <div className="col-lg-1"></div>
           <div className="col-lg-12">
               <table className="table table-hover">
                 <thead>
-                    <th scope="col">Remaining undone: {remainingCount}</th>
+                    <th scope="col">Remaining to do: {remainingCount}</th>
                 </thead>
                 <tbody>
                 {myItems.map((item:any, i:any) => (
@@ -62,16 +54,7 @@ export default function TodoList(props:any) {
                 ))}
                 </tbody>
             </table>
-
           </div>
-          <div className="col-lg-1"></div>
-
       </div>
-
-
-
-      </>
     );
-
-
 }

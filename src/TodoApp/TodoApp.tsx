@@ -63,57 +63,44 @@ const TodoApp = () => {
       };
 
       const warningRender = () => {
-
         return (
-
-            <>
-
                 <div className="alert alert-dismissible alert-light">
                   <button
                       type="button"
                       className="btn-close"
                       data-bs-dismiss="alert"
                       onClick={() => setWarning(false)}></button>
-                  <strong>Invalid input!</strong>
-                  Can not add empty todo.
+                  Can not add empty todo !
                 </div>
-
-
-            </>
         );
       }
 
   return (
-    <>
-     <div className="Todo bg-dark">
-        <h1>Todo List</h1>
+     <div className="Todo bg-dark pt-5">
+        <h1>My Todo List</h1>
         {warning === true && warningRender()}
         <div className="form-group row" >
           <div className="col-lg-12">
-          <form onSubmit={onSubmit}>
-              <input
-                className="col-sm-6"
-                type="text"
-                value={entry}
-                onChange={(e) => setEntry(e.target.value)}
-                placeholder="I need to..."
-              />
-
-              <button
-                style={{margin:'1px'}}
-              type="submit" className="btn btn-primary col-sm-6">Add Item</button>
-
-            </form>
+            <form onSubmit={onSubmit}>
+                <input
+                  className="col-sm-8"
+                  type="text"
+                  value={entry}
+                  onChange={(e) => setEntry(e.target.value)}
+                  placeholder="I need to..."
+                />
+                <button
+                  type="submit" className="btn btn-success col-sm-4">Add Item
+                </button>
+              </form>
           </div>
         <TodoList
             items={items}
             onTodoChange={onTodoChange}
             onTodoDelete={onTodoDelete}
             onTodoEdit={onEdit}/>
-
           </div>
     </div>
-    </>
   );
 };
 
