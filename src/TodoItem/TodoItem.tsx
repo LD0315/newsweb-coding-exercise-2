@@ -58,8 +58,6 @@ const TodoItem = (props: TodoItemProps) => {
       </>
     );
   };
-
-//{props.index + 1} {"- "+ props.todo}
   const renderTodo = () => {
         const index = props.index + 1;
         const text = "" + index + ".    " + props.todo;
@@ -96,15 +94,15 @@ const TodoItem = (props: TodoItemProps) => {
           >
           <td>
           <input
-            type="checkbox"
-            checked={props.done}
-            onChange={onChange} />{" "}
-            {!inEdit && renderTodo()}
-            {inEdit && renderEditable()}
-            {"    "}
-            {!inEdit &&  renderEditButton()}
-            {inEdit &&  renderDoneButton()}
-            {" "}
+              type="checkbox"
+              checked={props.done}
+              onChange={onChange} />{" "}
+              {!inEdit && renderTodo()}
+              {inEdit && renderEditable()}
+              {"    "}
+              {!inEdit &&  renderEditButton()}
+              {inEdit &&  renderDoneButton()}
+              {" "}
           <button
             type="button"
             className="btn btn-info ms-4"
