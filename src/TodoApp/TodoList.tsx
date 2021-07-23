@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { TodoItem } from "../TodoItem/TodoItem";
-
 import "./TodoApp.css";
 
 export default function TodoList(props:any) {

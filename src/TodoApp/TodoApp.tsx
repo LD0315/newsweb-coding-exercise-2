@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./TodoApp.css";
-import { TodoItem } from "../TodoItem/TodoItem";
-import TodoList from "./TodoList";
 import "./bootstrap.min.css";
+import TodoList from "./TodoList";
+
 type TodoItemType = {
   todo: string;
   done: boolean;
