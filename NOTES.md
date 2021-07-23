@@ -2,7 +2,7 @@ Add your notes here...
 
 Changes:
 1. Add a TodoList component.
-Reason: all the todo items are contained in the todo list, in order to add delete, edit functionalities.
+Reason: all the todo items are added into todo list, in order to add delete, edit functionalities.
 
 2. Add an invalid input warning "Can not add empty todo!"
 Reason: empty todo should not be added into the todo list.
