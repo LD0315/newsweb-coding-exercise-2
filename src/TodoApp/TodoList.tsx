@@ -3,20 +3,6 @@ import { TodoItem } from "../TodoItem/TodoItem";
 
 import "./TodoApp.css";
 
-/**
- * return (
-      <>
-        <ul>
-          Remaining:  {props.items.length} items
-        </ul>
-        <ul>
-          {props.items.map((item:any, i:any) => (
-            <TodoItem {...item} index={i} onChange={props.onTodoChange} />
-          ))}
-        </ul>
-      </>
-    );
- */
 export default function TodoList(props:any) {
     const countRemaining = (items:any[]) => {
         var count = 0;
@@ -37,8 +23,9 @@ export default function TodoList(props:any) {
     }, [props.items]);
 
     return (
+      <>
       <div className="row">
-          <div className="col-lg-12">
+          <div className="col-12">
               <table className="table table-hover">
                 <thead>
                     <th scope="col">Remaining to do: {remainingCount}</th>
@@ -56,5 +43,6 @@ export default function TodoList(props:any) {
             </table>
           </div>
       </div>
+      </>
     );
 }

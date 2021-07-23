@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./TodoApp.css";
-
 import { TodoItem } from "../TodoItem/TodoItem";
 import TodoList from "./TodoList";
 import "./bootstrap.min.css";
@@ -64,43 +63,47 @@ const TodoApp = () => {
 
       const warningRender = () => {
         return (
-                <div className="alert alert-dismissible alert-light">
-                  <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="alert"
-                      onClick={() => setWarning(false)}></button>
+          <>
+            <div className="alert alert-dismissible alert-light">
+              <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="alert"
+                  onClick={() => setWarning(false)}></button>
                   Can not add empty todo !
-                </div>
+            </div>
+          </>
         );
       }
 
   return (
+    <>
      <div className="Todo bg-dark pt-5">
         <h1>My Todo List</h1>
         {warning === true && warningRender()}
         <div className="form-group row" >
-          <div className="col-lg-12">
+          <div className="col-12">
             <form onSubmit={onSubmit}>
                 <input
-                  className="col-sm-8"
+                  className="col-8"
                   type="text"
                   value={entry}
                   onChange={(e) => setEntry(e.target.value)}
                   placeholder="I need to..."
                 />
                 <button
-                  type="submit" className="btn btn-success col-sm-4">Add Item
+                  type="submit" className="btn btn-success col-4">Add Item
                 </button>
               </form>
           </div>
-        <TodoList
-            items={items}
-            onTodoChange={onTodoChange}
-            onTodoDelete={onTodoDelete}
-            onTodoEdit={onEdit}/>
-          </div>
-    </div>
+          <TodoList
+              items={items}
+              onTodoChange={onTodoChange}
+              onTodoDelete={onTodoDelete}
+              onTodoEdit={onEdit}/>
+            </div>
+      </div>
+  </>
   );
 };
 
