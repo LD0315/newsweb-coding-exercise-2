@@ -44,25 +44,25 @@ const TodoApp = () => {
     );
   };
 
-      const onEdit = (index:number, value:string) => {
-          setItems(
-            items.map((item, i) => (i === index ? { ...item, todo: value } : item))
-          );
-      };
+  const onEdit = (index:number, value:string) => {
+      setItems(
+        items.map((item, i) => (i === index ? { ...item, todo: value } : item))
+      );
+  };
 
-      const onTodoDelete = (index:number) => {
-          let newItems = [];
-          for (let i = 0; i < items.length; i++) {
-              if (i == index) {
-                  continue;
-              }
+  const onTodoDelete = (index:number) => {
+      let newItems = [];
+        for (let i = 0; i < items.length; i++) {
+            if (i == index) {
+              continue;
+            }
               newItems.push(items[i]);
-          }
-          setItems(newItems);
-      };
+        }
+        setItems(newItems);
+  };
 
-      const warningRender = () => {
-        return (
+  const warningRender = () => {
+      return (
           <>
             <div className="alert alert-dismissible alert-light">
               <button
