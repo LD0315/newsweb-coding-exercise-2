@@ -82,17 +82,17 @@ const TodoApp = () => {
         <h1>My Todo List</h1>
         {warning === true && warningRender()}
         <div className="form-group row" >
-          <div className="col-12">
+          <div className="col-lg-12">
             <form onSubmit={onSubmit}>
                 <input
-                  className="col-8"
+                  className="col-lg-8"
                   type="text"
                   value={entry}
                   onChange={(e) => setEntry(e.target.value)}
                   placeholder="I need to..."
                 />
                 <button
-                  type="submit" className="btn btn-success col-4">Add Item
+                  type="submit" className="btn btn-success col-lg-4">Add Item
                 </button>
               </form>
           </div>
